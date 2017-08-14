@@ -8,7 +8,7 @@
     public class OptionsList : Canvas, FormField.IControl
     {
         RepeatDirection direction;
-        public OptionsDataSource Source { get; internal set; } = new OptionsDataSource();
+        public OptionsDataSource Source { get; set; } = new OptionsDataSource();
         public readonly AsyncEvent<Option> SelectedItemChanged = new AsyncEvent<Option>(ConcurrentEventRaisePolicy.Queue);
         public readonly ListView<OptionsDataSource.DataItem, Option> List = new ListView<OptionsDataSource.DataItem, Option>();
 
