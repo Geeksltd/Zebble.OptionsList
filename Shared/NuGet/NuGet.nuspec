@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Zebble.OptionsList</id>
+    <version>3.14.107</version>
+    <title>OptionsList for Zebble (Xamarin)</title>
+    <projectUrl>https://github.com/Geeksltd/Zebble.OptionsList</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/Shared/NuGet/Icon.png</iconUrl>
+    <copyright>Copyright ©2017 Mobile App Technologies Ltd - All rights reserved.</copyright>
+    <description>It's similar to a radio buttons (or checkbox list if MultiSelect is set to True).</description>
+    <authors>Mobile App Technologies Ltd</authors>
+    <dependencies>
+      <dependency id="Zebble.ListView" version="1.0.0" /> 
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\..\lib\Zebble.OptionsList.iOS.*" target="lib\Xamarin.iOS10\" />
+    <file src="..\..\lib\Zebble.OptionsList.Android.*" target="lib\MonoAndroid10\" />
+    <file src="..\..\lib\Zebble.OptionsList.UWP.*" target="lib\UAP10\" />
+  </files>
+</package>
