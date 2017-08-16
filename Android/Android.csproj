@@ -15,7 +15,8 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,10 +51,10 @@
       <HintPath>..\packages\Zebble.4.1.290\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.CheckBox.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.CheckBox.1.22.107\lib\MonoAndroid10\Zebble.CheckBox.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.CheckBox.1.22.109\lib\MonoAndroid10\Zebble.CheckBox.Android.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.ListView.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.ListView.3.17.127\lib\MonoAndroid10\Zebble.ListView.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.ListView.3.17.129\lib\MonoAndroid10\Zebble.ListView.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
