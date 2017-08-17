@@ -2,7 +2,14 @@
   "Items": [
     {
       "Analyzer": "UnusedMethodsAnalyzer",
-      "OccurrenceCount": 316,
+      "OccurrenceCount": 502,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "PAYMON"
+    },
+    {
+      "Analyzer": "AsyncAwaitMethodAnalyzer",
+      "OccurrenceCount": 43,
       "Exceptions": null,
       "SentToServer": true,
       "InstallationName": "PAYMON"
