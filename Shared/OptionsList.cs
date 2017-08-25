@@ -135,6 +135,7 @@
                 await Add(CheckBox.Set(c => c.CheckedChanged.Handle(OnCheckedChanged)));
 
                 Tapped.Handle(x => CheckBox.RaiseTapped());
+                LongPressed.Handle(x => CheckBox.RaiseLongPressed(x));
             }
 
             async Task OnCheckedChanged()

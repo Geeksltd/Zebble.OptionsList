@@ -1,8 +1,8 @@
 ﻿{
   "dependencies": {
-    "Zebble": "4.1.298",
+    "Zebble": "4.1.307",
     "Zebble.CheckBox": "1.22.109",
-    "Zebble.ListView": "3.17.129"
+    "Zebble.ListView": "3.17.134"
   },
   "frameworks": {
     "uap10.0": {}
