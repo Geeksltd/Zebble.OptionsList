@@ -1,6 +1,6 @@
 ﻿{
   "dependencies": {
-    "Zebble": "4.1.307",
+    "Zebble": "4.2.315",
     "Zebble.CheckBox": "1.22.109",
     "Zebble.ListView": "3.17.134"
   },
@@ -16,3 +16,4 @@
     "win10-x64-aot": {}
   }
 }
+
