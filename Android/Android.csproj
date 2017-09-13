@@ -47,7 +47,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Zebble.Android">
-      <HintPath>..\packages\Zebble.4.2.341\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.4.2.342\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Zebble.CheckBox.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
