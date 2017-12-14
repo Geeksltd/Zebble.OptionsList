@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Zebble.OptionsList</id>
-    <version>3.14.117</version>
+    <version>3.14.118</version>
     <title>Options List for Zebble (Xamarin)</title>
     <projectUrl>https://github.com/Geeksltd/Zebble.OptionsList</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/Shared/NuGet/Icon.png</iconUrl>
