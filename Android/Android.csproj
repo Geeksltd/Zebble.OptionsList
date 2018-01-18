@@ -48,19 +48,21 @@
     <Reference Include="System.Core">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Zebble.Android">
-      <HintPath>..\packages\Zebble.4.2.373\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Zebble.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zebble.4.3.100\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.CheckBox.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.CheckBox.1.22.109\lib\MonoAndroid10\Zebble.CheckBox.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.CheckBox.1.22.110\lib\MonoAndroid10\Zebble.CheckBox.Android.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.ListView.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.ListView.3.17.141\lib\MonoAndroid10\Zebble.ListView.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.ListView.3.17.142\lib\MonoAndroid10\Zebble.ListView.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Zebble.exe" />
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
