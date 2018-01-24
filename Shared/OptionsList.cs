@@ -10,7 +10,7 @@
         RepeatDirection direction;
         public OptionsDataSource Source { get; set; } = new OptionsDataSource();
         public readonly AsyncEvent<Option> SelectedItemChanged = new AsyncEvent<Option>(ConcurrentEventRaisePolicy.Queue);
-        public readonly ListView<OptionsDataSource.DataItem, Option> List = new ListView<OptionsDataSource.DataItem, Option>();
+        public readonly OptionsListView List = new OptionsListView();
 
         public OptionsList()
         {
@@ -51,22 +51,25 @@
             await base.OnInitializing();
 
             List.Direction = Direction;
-            await List.UpdateSource(Source.Items);
-            List.ItemViews.Do(v => v.SelectedChanged.Handle(() => SelectionChanged(v)));
+            List.SelectionChangedHandler = row => SelectionChanged(row);
+            List.ListItemsShownHandler = async () => await LoadExistingData();
 
             await Add(List);
-
-            LoadExistingData();
         }
 
-        void LoadExistingData()
+        async Task LoadExistingData()
         {
             if (List == null) return;
+
+            var toShow = Source.Items.Where(i => Source.SelectedValues.Contains(i.Value)).ToList();
+            toShow.AddRange(Source.Items.Except(i => Source.SelectedValues.Contains(i.Value)));
+
+            if (toShow.Any()) await List.UpdateSource(toShow);
 
             List.ItemViews
                 .Where(x => Source.SelectedValues.Contains(x.Value))
                 .Except(x => x.IsSelected)
-                .Do(x => x.IsSelected = true);
+                .Do(x => x.SelectOption());
         }
 
         Task SelectionChanged(Option row)
@@ -89,6 +92,7 @@
         public class Option : Stack, IListViewItem<OptionsDataSource.DataItem>
         {
             OptionsList Container => FindParent<OptionsList>();
+            bool IsProgrammaticallySelection;
             public readonly CheckBox CheckBox = new CheckBox { Id = "CheckBox" };
             public readonly TextView Label = new TextView { Id = "Label" };
             public OptionsDataSource.DataItem Item { get; set; }
@@ -140,16 +144,45 @@
 
             async Task OnCheckedChanged()
             {
+                if (!Item.Selected && CheckBox.Checked && IsProgrammaticallySelection) IsProgrammaticallySelection = false;
+
                 Item.Selected = CheckBox.Checked;
 
                 await SetPseudoCssState("checked", IsSelected);
-                await SelectedChanged.Raise();
+                if (!IsProgrammaticallySelection) await SelectedChanged.Raise();
             }
+
+            public void SelectOption() { IsProgrammaticallySelection = true; IsSelected = true; }
+            public void UnSelectOption() { IsProgrammaticallySelection = true; IsSelected = false; }
 
             public override void Dispose()
             {
                 SelectedChanged?.Dispose();
                 base.Dispose();
+            }
+        }
+
+        public class OptionsListView : ListView<OptionsDataSource.DataItem, Option>
+        {
+            public Action<Option> SelectionChangedHandler { get; set; }
+            public Action ListItemsShownHandler { get; set; }
+
+            public OptionsListView() : base()
+            {
+                Shown.AwaitRaiseCompletion().ContinueWith(result =>
+                {
+                    if (result.IsCompleted) ListItemsShownHandler?.Invoke();
+                });
+            }
+
+            public override async Task<TView> Add<TView>(TView child, bool awaitNative = false)
+            {
+                var result = await base.Add(child, awaitNative);
+
+                var option = result as Option;
+                if (option != null) option.SelectedChanged.Handle(() => SelectionChangedHandler(option));
+
+                return result;
             }
         }
     }
