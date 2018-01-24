@@ -49,13 +49,13 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Zebble.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.4.3.100\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.4.3.101\lib\MonoAndroid10\Zebble.Android.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.CheckBox.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Zebble.CheckBox.1.22.110\lib\MonoAndroid10\Zebble.CheckBox.Android.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.ListView.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.ListView.3.17.142\lib\MonoAndroid10\Zebble.ListView.Android.dll</HintPath>
+      <HintPath>..\packages\Zebble.ListView.3.17.143\lib\MonoAndroid10\Zebble.ListView.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

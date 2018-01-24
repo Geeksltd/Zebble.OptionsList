@@ -110,13 +110,13 @@
       <Version>6.0.6</Version>
     </PackageReference>
     <PackageReference Include="Zebble">
-      <Version>4.3.100</Version>
+      <Version>4.3.101</Version>
     </PackageReference>
     <PackageReference Include="Zebble.CheckBox">
       <Version>1.22.110</Version>
     </PackageReference>
     <PackageReference Include="Zebble.ListView">
-      <Version>3.17.142</Version>
+      <Version>3.17.143</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
