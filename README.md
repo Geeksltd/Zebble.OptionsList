@@ -1,14 +1,14 @@
-[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.OptionList/master/Shared/NuGet/Icon.png "Zebble.OptionList"
+[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/Shared/NuGet/Icon.png "Zebble.OptionsList"
 
 
-## Zebble.OptionList
+## Zebble.OptionsList
 
 ![logo]
 
 A Zebble plugin to allows you add an option list from a source.
 
 
-[![NuGet](https://img.shields.io/nuget/v/Zebble.OptionList.svg?label=NuGet)](https://www.nuget.org/packages/Zebble.OptionList/)
+[![NuGet](https://img.shields.io/nuget/v/Zebble.OptionsList.svg?label=NuGet)](https://www.nuget.org/packages/Zebble.OptionsList/)
 
 > With this plugin you can add single and multiple selection list from a data source and add some action to do when they selected or not.
 
@@ -16,7 +16,7 @@ A Zebble plugin to allows you add an option list from a source.
 
 
 ### Setup
-* Available on NuGet: [https://www.nuget.org/packages/Zebble.OptionList/](https://www.nuget.org/packages/Zebble.OptionList/)
+* Available on NuGet: [https://www.nuget.org/packages/Zebble.OptionsList/](https://www.nuget.org/packages/Zebble.OptionsList/)
 * Install in your platform client projects.
 * Available for iOS, Android and UWP.
 <br>
