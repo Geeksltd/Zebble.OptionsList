@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Zebble.OptionsList</id>
-    <version>3.14.123</version>
+    <version>3.14.124</version>
     <title>Options List for Zebble (Xamarin)</title>
     <projectUrl>https://github.com/Geeksltd/Zebble.OptionsList</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/Shared/NuGet/Icon.png</iconUrl>
@@ -10,8 +10,8 @@
     <description>It's similar to a radio buttons (or checkbox list if MultiSelect is set to True).</description>
     <authors>Geeks Ltd</authors>
     <dependencies>
-      <dependency id="Zebble.ListView" version="3.17.141" />
-      <dependency id="Zebble.CheckBox" version="1.22.109" />
+      <dependency id="Zebble.ListView" version="3.17.144" />
+      <dependency id="Zebble.CheckBox" version="1.22.111" />
     </dependencies>
   </metadata>
   <files>
