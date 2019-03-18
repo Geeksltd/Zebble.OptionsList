@@ -17,6 +17,10 @@
   <files>
     <file src="..\..\lib\Zebble.OptionsList.iOS.*" target="lib\Xamarin.iOS10\" />
     <file src="..\..\lib\Zebble.OptionsList.Android.*" target="lib\MonoAndroid10\" />
-    <file src="..\..\lib\Zebble.OptionsList.UWP.*" target="lib\UAP10\" />
+    <file src="..\..\lib\bin\ARM\Release\Zebble.OptionsList.UWP.*" target="runtimes\win10-arm\lib\uap10.0" />
+    <file src="..\..\lib\bin\x64\Release\Zebble.OptionsList.UWP.*" target="runtimes\win10-x64\lib\uap10.0" />
+    <file src="..\..\lib\bin\x86\Release\Zebble.OptionsList.UWP.*" target="runtimes\win10-x86\lib\uap10.0" />
+
+    <file src="..\..\lib\bin\Release\Zebble.OptionsList.UWP.*" target="ref\uap10.0" />
   </files>
 </package>
