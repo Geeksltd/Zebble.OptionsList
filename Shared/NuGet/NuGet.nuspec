@@ -2,11 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Zebble.OptionsList</id>
-    <version>3.14.124</version>
+    <version>3.14.127</version>
     <title>Options List for Zebble (Xamarin)</title>
     <projectUrl>https://github.com/Geeksltd/Zebble.OptionsList</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/Shared/NuGet/Icon.png</iconUrl>
-    <copyright>Copyright © 2018 Geeks Ltd - All rights reserved.</copyright>
+    <copyright>Copyright © 2019 Geeks Ltd - All rights reserved.</copyright>
     <description>It's similar to a radio buttons (or checkbox list if MultiSelect is set to True).</description>
     <authors>Geeks Ltd</authors>
     <dependencies>
@@ -20,7 +20,6 @@
     <file src="..\..\lib\bin\ARM\Release\Zebble.OptionsList.UWP.*" target="runtimes\win10-arm\lib\uap10.0" />
     <file src="..\..\lib\bin\x64\Release\Zebble.OptionsList.UWP.*" target="runtimes\win10-x64\lib\uap10.0" />
     <file src="..\..\lib\bin\x86\Release\Zebble.OptionsList.UWP.*" target="runtimes\win10-x86\lib\uap10.0" />
-
     <file src="..\..\lib\bin\Release\Zebble.OptionsList.UWP.*" target="ref\uap10.0" />
   </files>
 </package>
