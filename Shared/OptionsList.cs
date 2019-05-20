@@ -89,13 +89,15 @@
             base.Dispose();
         }
 
-        public class Option : Stack, IListViewItem<OptionsDataSource.DataItem>
+        public class Option : Stack, IRecyclerListViewItem<OptionsDataSource.DataItem>
         {
             OptionsList Container => FindParent<OptionsList>();
             bool IsProgrammaticallySelection;
             public readonly CheckBox CheckBox = new CheckBox { Id = "CheckBox" };
             public readonly TextView Label = new TextView { Id = "Label" };
-            public OptionsDataSource.DataItem Item { get; set; }
+            public Bindable<OptionsDataSource.DataItem> Item { get; } = new Bindable<OptionsDataSource.DataItem>();
+            OptionsDataSource.DataItem IListViewItem<OptionsDataSource.DataItem>.Item { get => Item.Value; set => Item.Set(value); }
+
             public readonly AsyncEvent SelectedChanged = new AsyncEvent(ConcurrentEventRaisePolicy.Queue);
 
             public Option() : base(RepeatDirection.Horizontal) { }
@@ -127,15 +129,15 @@
                 }
             }
 
-            public object Value => Item.Value;
+            public object Value => Item.Value.Value;
 
-            public string Text => Item.Text;
+            public string Text => Item.Value.Text;
 
             public override async Task OnInitializing()
             {
                 await base.OnInitializing();
 
-                await Add(Label.Set(x => { x.Text = Item.Text; }));
+                await Add(Label.Bind(nameof(Label.Text), Item, x => x.Text));
                 await Add(CheckBox.Set(c => c.CheckedChanged.Handle(OnCheckedChanged)));
 
                 Tapped.Handle(x => CheckBox.RaiseTapped());
@@ -144,9 +146,10 @@
 
             async Task OnCheckedChanged()
             {
-                if (!Item.Selected && CheckBox.Checked && IsProgrammaticallySelection) IsProgrammaticallySelection = false;
+                if (!Item.Value.Selected && CheckBox.Checked && IsProgrammaticallySelection)
+                    IsProgrammaticallySelection = false;
 
-                Item.Selected = CheckBox.Checked;
+                Item.Value.Selected = CheckBox.Checked;
 
                 await SetPseudoCssState("checked", IsSelected);
                 if (!IsProgrammaticallySelection) await SelectedChanged.Raise();
@@ -162,7 +165,7 @@
             }
         }
 
-        public class OptionsListView : ListView<OptionsDataSource.DataItem, Option>
+        public class OptionsListView : RecyclerListView<OptionsDataSource.DataItem, Option>
         {
             public Action<Option> SelectionChangedHandler { get; set; }
             public Action ListItemsShownHandler { get; set; }

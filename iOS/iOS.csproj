@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <DocumentationFile>..\lib\Zebble.OptionsList.iOS.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -41,13 +42,13 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Zebble.CheckBox.iOS, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.CheckBox.1.22.111\lib\Xamarin.iOS10\Zebble.CheckBox.iOS.dll</HintPath>
+      <HintPath>..\packages\Zebble.CheckBox.1.22.115\lib\Xamarin.iOS10\Zebble.CheckBox.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.4.4.185\lib\Xamarin.iOS10\Zebble.iOS.dll</HintPath>
+      <HintPath>..\packages\Zebble.4.4.241\lib\Xamarin.iOS10\Zebble.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Zebble.ListView.iOS, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zebble.ListView.3.17.144\lib\Xamarin.iOS10\Zebble.ListView.iOS.dll</HintPath>
+      <HintPath>..\packages\Zebble.ListView.4.10.156\lib\Xamarin.iOS10\Zebble.ListView.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
