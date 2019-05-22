@@ -89,7 +89,7 @@
             base.Dispose();
         }
 
-        public class Option : Stack, IListViewItem<OptionsDataSource.DataItem>
+        public class Option : Stack, IRecyclerListViewItem<OptionsDataSource.DataItem>
         {
             OptionsList Container => FindParent<OptionsList>();
             bool IsProgrammaticallySelection;
@@ -165,7 +165,7 @@
             }
         }
 
-        public class OptionsListView : ListView<OptionsDataSource.DataItem, Option>
+        public class OptionsListView : RecyclerListView<OptionsDataSource.DataItem, Option>
         {
             public Action<Option> SelectionChangedHandler { get; set; }
             public Action ListItemsShownHandler { get; set; }
