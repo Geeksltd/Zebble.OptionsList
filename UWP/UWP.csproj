@@ -114,16 +114,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.1.9</Version>
+      <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Zebble">
-      <Version>4.4.241</Version>
+      <Version>4.5.359</Version>
     </PackageReference>
     <PackageReference Include="Zebble.CheckBox">
-      <Version>1.22.115</Version>
+      <Version>1.22.116</Version>
     </PackageReference>
     <PackageReference Include="Zebble.ListView">
-      <Version>4.10.156</Version>
+      <Version>4.10.168</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />

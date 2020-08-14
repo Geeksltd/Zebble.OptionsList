@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class OptionsList : Canvas, FormField.IControl
+    public class OptionsList : Canvas, FormField.IControl, IBindableInput
     {
         RepeatDirection direction;
         public OptionsDataSource Source { get; set; } = new OptionsDataSource();
@@ -88,6 +88,8 @@
             SelectedItemChanged?.Dispose();
             base.Dispose();
         }
+
+        public void AddBinding(Bindable bindable) => SelectedItemChanged.Handle(() => bindable.SetUserValue(Value));
 
         public class Option : Stack, IRecyclerListViewItem<OptionsDataSource.DataItem>
         {
