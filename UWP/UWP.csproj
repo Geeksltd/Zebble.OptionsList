@@ -145,6 +145,7 @@
     <Error Condition="!Exists('..\Shared\Shared.projitems')" Text="This project references Shared that are missing on this computer." />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>copy /y $(TargetDir)Zebble.OptionsList.UWP.* C:\Users\Administrator\.nuget\packages\zebble.optionslist\3.14.127\runtimes\win10-x86\lib\uap10.0</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

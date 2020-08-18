@@ -20,7 +20,11 @@
         public object Value
         {
             get => Source.Value;
-            set { Source.Value = value; LoadExistingData(); }
+            set
+            {
+                Source.Value = value;
+                LoadExistingData();
+            }
         }
 
         public IEnumerable<object> DataSource
