@@ -23,7 +23,6 @@
             set
             {
                 Source.Value = value;
-                LoadExistingData();
             }
         }
 
