@@ -17,14 +17,29 @@
             Direction = RepeatDirection.Vertical;
         }
 
-        public object Value
+        object selectedValue;
+        public object SelectedValue
         {
-            get => Source.Value;
+            get => selectedValue;
             set
             {
-                Source.Value = value;
+                if (selectedValue != value) return;
+                selectedValue = value;
+                if (value == null)
+                    List.ItemViews.Where(x => x.IsSelected).Do(x => x.UnSelectOption());
             }
         }
+
+        object FormField.IControl.Value
+        {
+            get => SelectedValue;
+            set
+            {
+                SelectedValue = value;
+            }
+        }
+
+        public void AddBinding(Bindable bindable) => SelectedItemChanged.Handle(() => bindable.SetUserValue(Source.Value));
 
         public IEnumerable<object> DataSource
         {
@@ -91,8 +106,6 @@
             SelectedItemChanged?.Dispose();
             base.Dispose();
         }
-
-        public void AddBinding(Bindable bindable) => SelectedItemChanged.Handle(() => bindable.SetUserValue(Value));
 
         public class Option : Stack, IRecyclerListViewItem<OptionsDataSource.DataItem>
         {
