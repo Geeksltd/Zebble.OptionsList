@@ -17,29 +17,17 @@
             Direction = RepeatDirection.Vertical;
         }
 
-        object selectedValue;
-        public object SelectedValue
+        public object Value
         {
-            get => selectedValue;
+            get => Source.Value;
             set
             {
-                if (selectedValue != value) return;
-                selectedValue = value;
+                Source.Value = value;
                 if (value == null)
                     List.ItemViews.Where(x => x.IsSelected).Do(x => x.UnSelectOption());
+                LoadExistingData();
             }
         }
-
-        object FormField.IControl.Value
-        {
-            get => SelectedValue;
-            set
-            {
-                SelectedValue = value;
-            }
-        }
-
-        public void AddBinding(Bindable bindable) => SelectedItemChanged.Handle(() => bindable.SetUserValue(Source.Value));
 
         public IEnumerable<object> DataSource
         {
@@ -79,10 +67,10 @@
         {
             if (List == null) return;
 
-            var toShow = Source.Items.Where(i => Source.SelectedValues.Contains(i.Value)).ToList();
-            toShow.AddRange(Source.Items.Except(i => Source.SelectedValues.Contains(i.Value)));
+            //var toShow = Source.Items.Where(i => Source.SelectedValues.Contains(i.Value)).ToList();
+            //toShow.AddRange(Source.Items.Except(i => Source.SelectedValues.Contains(i.Value)));
 
-            if (toShow.Any()) await List.UpdateSource(toShow);
+            if (Source.Items.Any()) await List.UpdateSource(Source.Items);
 
             List.ItemViews
                 .Where(x => Source.SelectedValues.Contains(x.Value))
@@ -106,6 +94,8 @@
             SelectedItemChanged?.Dispose();
             base.Dispose();
         }
+
+        public void AddBinding(Bindable bindable) => SelectedItemChanged.Handle(() => bindable.SetUserValue(Value));
 
         public class Option : Stack, IRecyclerListViewItem<OptionsDataSource.DataItem>
         {
