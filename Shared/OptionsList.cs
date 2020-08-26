@@ -22,11 +22,18 @@
             get => Source.Value;
             set
             {
+                SetDefaultValues(value);
                 Source.Value = value;
-                if (value == null)
-                    List.ItemViews.Where(x => x.IsSelected).Do(x => x.UnSelectOption());
                 LoadExistingData();
             }
+        }
+
+        private void SetDefaultValues(object value)
+        {
+            if (value == null)
+                List.ItemViews.Where(x => x.IsSelected).Do(x => x.UnSelectOption());
+            else if (Source.Value != value)
+                List.ItemViews.Where(x => x.Value == Source.Value).Do(x => x.UnSelectOption());
         }
 
         public IEnumerable<object> DataSource
