@@ -152,7 +152,7 @@
             {
                 await base.OnInitializing();
 
-                await Add(Label.Bind(nameof(Label.Text), Item, x => x.Text));
+                await Add(Label.Bind(nameof(Label.Text), () => Item, x => x.Text));
                 await Add(CheckBox.Set(c => c.CheckedChanged.Handle(OnCheckedChanged)));
 
                 Tapped.Handle(x => CheckBox.RaiseTapped());
