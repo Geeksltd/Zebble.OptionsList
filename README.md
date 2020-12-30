@@ -1,4 +1,4 @@
-[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/Shared/NuGet/Icon.png "Zebble.OptionsList"
+﻿[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.OptionsList/master/icon.png "Zebble.OptionsList"
 
 
 ## Zebble.OptionsList
