@@ -7,7 +7,7 @@
     <RootNamespace>Zebble</RootNamespace>
     <PackageId>Zebble.OptionsList</PackageId>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>3.15.139.0</Version>
+    <Version>3.15.140.0</Version>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -66,8 +66,8 @@
     <None Remove="Zebble-LicenseAgreement.txt" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Zebble.CheckBox" Version="1.22.120" />
-    <PackageReference Include="Zebble.ListView" Version="4.10.183" />
+    <PackageReference Include="Zebble.CheckBox" Version="1.22.121" />
+    <PackageReference Include="Zebble.ListView" Version="4.10.184" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Android\" />
