@@ -9,14 +9,11 @@
     public class OptionsList : Canvas, FormField.IControl, IBindableInput
     {
         RepeatDirection direction;
-        public OptionsDataSource Source { get; set; } = new OptionsDataSource();
-        public readonly AsyncEvent<Option> SelectedItemChanged = new AsyncEvent<Option>(ConcurrentEventRaisePolicy.Queue);
-        public readonly OptionsListView List = new OptionsListView();
+        public OptionsDataSource Source { get; set; } = new();
+        public readonly AsyncEvent<Option> SelectedItemChanged = new(ConcurrentEventRaisePolicy.Queue);
+        public readonly OptionsListView List = new();
 
-        public OptionsList()
-        {
-            Direction = RepeatDirection.Vertical;
-        }
+        public OptionsList() => Direction = RepeatDirection.Vertical;
 
         public object Value
         {
@@ -41,6 +38,11 @@
         {
             get => Source.DataSource;
             set => Source.DataSource = value;
+        }
+
+        public IBindable BindableSource
+        {
+            set => value.AddBinding(this, nameof(DataSource));
         }
 
         public bool MultiSelect
@@ -109,12 +111,12 @@
         {
             OptionsList Container => FindParent<OptionsList>();
             bool IsProgrammaticallySelection;
-            public readonly CheckBox CheckBox = new CheckBox { Id = "CheckBox" };
-            public readonly TextView Label = new TextView { Id = "Label" };
-            public Bindable<OptionsDataSource.DataItem> Item { get; } = new Bindable<OptionsDataSource.DataItem>();
+            public readonly CheckBox CheckBox = new() { Id = "CheckBox" };
+            public readonly TextView Label = new() { Id = "Label" };
+            public Bindable<OptionsDataSource.DataItem> Item { get; } = new();
             OptionsDataSource.DataItem IListViewItem<OptionsDataSource.DataItem>.Item { get => Item.Value; set => Item.Set(value); }
 
-            public readonly AsyncEvent SelectedChanged = new AsyncEvent(ConcurrentEventRaisePolicy.Queue);
+            public readonly AsyncEvent SelectedChanged = new(ConcurrentEventRaisePolicy.Queue);
 
             public Option() : base(RepeatDirection.Horizontal) { }
 
