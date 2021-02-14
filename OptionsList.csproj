@@ -6,7 +6,7 @@
     <RootNamespace>Zebble</RootNamespace>
     <PackageId>Zebble.OptionsList</PackageId>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>3.15.142.0</Version>
+    <Version>3.15.144.0</Version>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <DefineConstants>$(DefineConstants)</DefineConstants>
@@ -78,6 +78,6 @@
     <None Remove="Shared\SelectableItemView.cs" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /y E:\Projects\Zebble\Plugins\OptionsList\bin\Debug\uap10.0.18362\Zebble.OptionsList.dll E:\Nuget\packages\zebble.optionslist\3.15.141\lib\uap10.0.18362" />
+    <Exec Command="update-local-nuget-cache" />
   </Target>
 </Project>

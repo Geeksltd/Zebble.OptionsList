@@ -7,19 +7,13 @@
 
     public class OptionsList<TSource> : CollectionView<SelectableItem<TSource>, SelectableItemView<TSource>>, IBindableInput
     {
-        readonly Mvvm.SelectionViewModel<SelectableItem<TSource>> Items = new();
+        readonly Mvvm.CollectionViewModel<SelectableItem<TSource>> Items = new();
         event InputChanged InputChanged;
 
         public OptionsList()
         {
             base.Source = Items;
             CssClass = "options-list";
-
-            Items.SelectionChanged += () =>
-            {
-                InputChanged?.Invoke(nameof(SelectedItem));
-                InputChanged?.Invoke(nameof(SelectedItems));
-            };
         }
 
         event InputChanged IBindableInput.InputChanged { add => InputChanged += value; remove => InputChanged -= value; }
@@ -27,7 +21,18 @@
         public IEnumerable<TSource> Source
         {
             get => Items.Select(v => v.Source.Value);
-            set => Items.Replace(value);
+            set
+            {
+                Items.Replace(value);
+                Items.Do(x => x.Selected.ChangedByInput += () =>
+                {
+                    if (!MultiSelect && x.Selected.Value)
+                        Items.Where(x => x.Selected.Value).Except(x).Do(x => x.Selected.SetByInput(false));
+
+                    InputChanged?.Invoke(nameof(SelectedItem));
+                    InputChanged?.Invoke(nameof(SelectedItems));
+                });
+            }
         }
 
         public IEnumerable<TSource> SelectedItems
@@ -42,10 +47,6 @@
             set => SelectedItems = new[] { value }.ExceptNull();
         }
 
-        public bool MultiSelect
-        {
-            get => Items.MultiSelect;
-            set => Items.MultiSelect = value;
-        }
+        public bool MultiSelect { get; set; }
     }
 }
