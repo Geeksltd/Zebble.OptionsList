@@ -10,6 +10,8 @@
         readonly Mvvm.CollectionViewModel<SelectableItem<TSource>> Items = new();
         event InputChanged InputChanged;
 
+        public HorizontalAlignment CheckboxAlignment { get; set; }
+
         public OptionsList()
         {
             base.Source = Items;
