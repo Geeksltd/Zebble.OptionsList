@@ -6,7 +6,7 @@
     <RootNamespace>Zebble</RootNamespace>
     <PackageId>Zebble.OptionsList</PackageId>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>3.15.145.0</Version>
+    <Version>3.15.146.0</Version>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <DefineConstants>$(DefineConstants)</DefineConstants>
@@ -64,18 +64,15 @@
     <None Remove="Zebble-LicenseAgreement.txt" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Olive" Version="2.1.224" />
-    <PackageReference Include="Zebble" Version="4.5.473" />
-    <PackageReference Include="Zebble.CheckBox" Version="1.22.122" />
-    <PackageReference Include="Zebble.ListView" Version="4.10.188" />
+    <PackageReference Include="Olive" Version="2.1.239" />
+    <PackageReference Include="Zebble" Version="4.5.504" />
+    <PackageReference Include="Zebble.CheckBox" Version="1.22.125" />
+    <PackageReference Include="Zebble.ListView" Version="4.10.197" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Android\" />
     <Folder Include="iOS\" />
     <Folder Include="UWP\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Shared\SelectableItemView.cs" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="update-local-nuget-cache" />

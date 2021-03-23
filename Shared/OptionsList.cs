@@ -5,7 +5,9 @@
     using System.Linq;
     using Olive;
 
-    public class OptionsList<TSource> : CollectionView<SelectableItem<TSource>, SelectableItemView<TSource>>, IBindableInput
+    public interface IOptionsList { }
+
+    public class OptionsList<TSource> : CollectionView<SelectableItem<TSource>, SelectableItemView<TSource>>, IOptionsList, IBindableInput
     {
         readonly Mvvm.CollectionViewModel<SelectableItem<TSource>> Items = new();
         event InputChanged InputChanged;
