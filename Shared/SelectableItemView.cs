@@ -17,8 +17,11 @@ namespace Zebble
         public override async Task OnInitializing()
         {
             await base.OnInitializing();
-            Label.Bind("Text", () => Model.Text).On(x => x.Tapped, () => Model.Selected.Toggle());
-            CheckBox.Bind("Checked", () => Model.Selected);
+            Label.Bind("Text", () => Model.Text).On(x => x.Tapped, () => CheckBox.UserToggled());
+            // CheckBox.Bind("Checked", () => Model.Selected);
+
+            (CheckBox as IBindableInput).InputChanged += prop => Model.Selected.SetByInput(CheckBox.Checked);
+            CheckBox.CheckedChanged.Event += () => Model.Selected.Set(CheckBox.Checked);
 
             var rightSide = FindParent<OptionsList<TSource>>()?.CheckboxAlignment == HorizontalAlignment.Right;
 
