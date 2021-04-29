@@ -6,7 +6,7 @@
     <RootNamespace>Zebble</RootNamespace>
     <PackageId>Zebble.OptionsList</PackageId>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>3.15.148.0</Version>
+    <Version>3.15.149.0</Version>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <DefineConstants>$(DefineConstants)</DefineConstants>
@@ -26,6 +26,7 @@
     <Authors>Geeks Ltd</Authors>
     <Copyright>Geeks Ltd 2021, All rights reserved.</Copyright>
     <DisableExtraReferences>true</DisableExtraReferences>
+    <AssemblyVersion>3.15.149.0</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +76,6 @@
     <Folder Include="UWP\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="update-local-nuget-cache" />
+    <Exec Command="update-local-nuget-cache $(TargetDir)" />
   </Target>
 </Project>

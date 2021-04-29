@@ -35,6 +35,12 @@ namespace Zebble
                 await Add(CheckBox);
                 await Add(Label);
             }
+
+            await WhenShown(() =>
+            {
+                if (Model.Selected != CheckBox.Checked)
+                    CheckBox.Checked = Model.Selected;
+            });
         }
     }
 }
