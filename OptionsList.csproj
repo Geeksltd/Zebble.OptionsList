@@ -1,12 +1,12 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10;MonoAndroid90</TargetFrameworks>
+    <TargetFrameworks>Xamarin.iOS10;MonoAndroid13.0</TargetFrameworks>
     <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0.18362</TargetFrameworks>
     <AssemblyName>Zebble.OptionsList</AssemblyName>
     <RootNamespace>Zebble</RootNamespace>
     <PackageId>Zebble.OptionsList</PackageId>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>3.15.149.0</Version>
+    <Version>3.15.150.0</Version>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <DefineConstants>$(DefineConstants)</DefineConstants>
@@ -24,7 +24,7 @@
     <PackageReleaseNotes>Minor fixes</PackageReleaseNotes>
     <Owners>Geeks Ltd</Owners>
     <Authors>Geeks Ltd</Authors>
-    <Copyright>Geeks Ltd 2021, All rights reserved.</Copyright>
+    <Copyright>Geeks Ltd 2023, All rights reserved.</Copyright>
     <DisableExtraReferences>true</DisableExtraReferences>
     <AssemblyVersion>3.15.149.0</AssemblyVersion>
   </PropertyGroup>
@@ -65,10 +65,10 @@
     <None Remove="Zebble-LicenseAgreement.txt" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Olive" Version="2.1.253" />
-    <PackageReference Include="Zebble" Version="4.5.507" />
-    <PackageReference Include="Zebble.CheckBox" Version="1.22.126" />
-    <PackageReference Include="Zebble.ListView" Version="4.10.198" />
+    <PackageReference Include="Olive" Version="2.1.334" />
+    <PackageReference Include="Zebble" Version="4.5.672" />
+    <PackageReference Include="Zebble.CheckBox" Version="1.22.127" />
+    <PackageReference Include="Zebble.ListView" Version="4.10.220" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Android\" />
